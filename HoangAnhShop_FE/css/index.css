@@ -30,10 +30,13 @@
     background-color: #f2f5f5!important;
     
    color: var(--text_color) !important;  
-    font-size : 14px !important; 
+    font-size : 12px !important; 
     padding: 8px 12px !important;
 }
+.pricesp{
+    font-size : 15px !important; 
 
+}
 
 .tooltip.bs-tooltip-top .tooltip-arrow::before {
     background-color: #FFFF !important;
@@ -56,4 +59,50 @@
 .fruite .tab-class .nav-item a.active {
     background-color:var(--text_color) !important ;
     color: #FFFF !important;
+}
+.soluongcuasanpham{
+    font-size: 13px !important;
+    color: black !important;
+    opacity: 0.5 !important;
+}
+.sukiennut:hover{
+    background-color: #dceded!important;
+    color: var(--text_color) !important;
+}
+.product-titler {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+text-overflow: ellipsis !important;
+    line-height: 1em !important; /* Chiều cao dòng */
+    height: 2.1em !important; /* 2 dòng * line-height */
+    margin-bottom: 0px !important;
+  }
+  .containersp{
+    padding: 5px 0 !important;
+    width: 240px !important;
+    border: 2px solid #ccc;
+     box-sizing: border-box;
+  }
+  .owl-item.active {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 250px !important;
+}
+.owl-item.cloned {
+    margin:0 !important;
+    width: 250px !important;
+  
+}
+.btnhover:hover{
+    background-color: #FFFF!important;
+    color:  var(--text_color)!important;
+    
+}
+.textcolora h4{
+    color:  var(--text_color)!important;
+}
+.footer-item, .footer-item a{
+    color: #FFFF !important
 }
