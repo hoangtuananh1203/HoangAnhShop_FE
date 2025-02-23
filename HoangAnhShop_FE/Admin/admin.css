@@ -1,0 +1,30 @@
+body {
+    font-family: "Raleway", sans-serif;
+}
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    left: 0;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.sidebar a {
+    padding: 10px 15px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+.sidebar a.active {
+    background-color: #007bff;
+    color: #fff;
+}
+.sidebar a:hover {
+    background-color: #ddd;
+}
+table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+  }
+

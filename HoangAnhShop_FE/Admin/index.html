@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin HANH-MOBILE</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      html,
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Raleway", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="w3-light-grey">
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index: 4">
+      <button
+        class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+        onclick="w3_close()"
+      >
+        <i class="fa fa-bars"></i>Menu
+      </button>
+      <button onclick="LogoutAccount()" class="w3-bar-item w3-right">
+        Đăng xuất
+      </button>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row d-flex">
+        <!-- Sidebar/menu -->
+        <div class="col-lg-2 mt-5 p-0">
+          <nav
+            class="w3-white"
+            style="z-index: 100; height: auto; padding-bottom: 200px"
+            id="mySidebar"
+          >
+            <br />
+            <div class="w3-container w3-row">
+              <div class="w3-col s4">
+                <img
+                  src="/fruitables-1.0.0/img/avatar.jpg"
+                  class="w3-circle w3-margin-right"
+                  style="width: 46px"
+                />
+              </div>
+              <div class="w3-col s8 w3-bar">
+                <span>Welcome, <strong>Admin</strong></span
+                ><br />
+                <a href="#" class="w3-bar-item w3-button"
+                  ><i class="fa fa-envelope"></i
+                ></a>
+                <a href="#" class="w3-bar-item w3-button"
+                  ><i class="fa fa-user"></i
+                ></a>
+                <a href="#" class="w3-bar-item w3-button"
+                  ><i class="fa fa-cog"></i
+                ></a>
+              </div>
+            </div>
+            <hr />
+            <div class="w3-container">
+              <h5>Admin</h5>
+            </div>
+            <div class="w3-bar">
+              <a
+                href="#"
+                class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+                onclick="w3_close()"
+                title="close menu"
+                ><i class="fa fa-remove fa-fw"></i> Close Menu</a
+              >
+
+              <a class="nav-link bg-light" href="/fruitables-1.0.0/index.html">
+                <span class="ml-1">Trang chủ</span>
+              </a>
+              <!-- menu thống kê  -->
+              <a
+                class="nav-link bg-light dropdown-item"
+                style="width: 100%; text-align: start; margin-left: 20px"
+                data-toggle="collapse"
+                href="#thongkettnav"
+                role="button"
+                aria-expanded="false"
+                aria-controls="thongkettnav"
+              >
+                <i class="fa fa-users fa-fw"></i> Thống kê
+                <span class="my-5"></span>
+              </a>
+              <!-- menu Danh mục  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-eye fa-fw"></i>
+                  <span class="pe-5">Danh mục </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="dropdown-item bg-light"
+                    data-toggle="collapse"
+                    href="#danhmucnav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="danhmucnav1"
+                  >
+                    Thông tin
+                  </a>
+                  <a
+                    class="dropdown-item bg-light"
+                    data-toggle="collapse"
+                    href="#danhmucnav2"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="danhmucnav2"
+                  >
+                    Thêm danh mục
+                  </a>
+                  <a
+                    class="dropdown-item bg-light"
+                    data-toggle="collapse"
+                    href="#danhmucnav3"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="danhmucnav3"
+                  >
+                    Sửa danh mục
+                  </a>
+                </div>
+              </div>
+              <!-- menu Hãng sản xuất  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-users fa-fw"></i>
+                  <span class="pe-5">Hãng sản xuất </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#hangsxnav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="hangsxnav1"
+                  >
+                    Thông tin
+                  </a>
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#hangsxnav2"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="hangsxnav2"
+                  >
+                    Thêm hãng
+                  </a>
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#hangsxnav3"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="hangsxnav3"
+                  >
+                    Sửa Hãng
+                  </a>
+                </div>
+              </div>
+              <!-- menu Sản phẩm  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bullseye fa-fw"></i>
+                  <span class="pe-5"> Sản phẩm </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#sanphamnav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="sanphamnav1"
+                  >
+                    Danh sách Sản phẩm
+                  </a>
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#sanphamnav2"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="sanphamnav2"
+                  >
+                    Thêm Sản phẩm
+                  </a>
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#sanphamnav3"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="sanphamnav3"
+                  >
+                    Sửa Sản phẩm
+                  </a>
+                </div>
+              </div>
+              <!-- menu Dơn hàng  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">Đơn hàng </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#donhangnav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="donhangnav1"
+                  >
+                    Danh sách Đơn hàng
+                  </a>
+                </div>
+              </div>
+              <!--  menu  Tin tức  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-eye fa-fw"></i>
+                  <span class="pe-5">Tin tức </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#tintucnav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="tintucnav1"
+                  >
+                    Danh sách Tin tức
+                  </a>
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#tintucnav2"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="tintucnav2"
+                  >
+                    Thêm Tin tức
+                  </a>
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#tintucnav3"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="tintucnav3"
+                  >
+                    Sửa Tin tức
+                  </a>
+                </div>
+              </div>
+              <!--  menu  Liên hệ  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bell fa-fw"></i>
+                  <span class="pe-5">Liên hệ </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#lienhenav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="lienhenav1"
+                  >
+                    Danh sách liên hệ
+                  </a>
+                </div>
+              </div>
+              <!--  menu  Khách hàng  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">Khách hàng </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#khachhangnav1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="khachhangnav1"
+                  >
+                    Danh sách tài khoản
+                  </a>
+                </div>
+              </div>
+              <!-- menu BannerIndex -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">BanerIndex </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#bannerindex1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="bannerindex1"
+                  >
+                    Danh sách
+                  </a>
+                </div>
+              </div>
+              <!-- menu Bnanerthree -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">BannerThree </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#bannerthree1"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="bannerthree1"
+                  >
+                    Danh sách
+                  </a>
+                </div>
+              </div>
+              <!-- menu SanphamquangBa -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">Sản phẩm quảng bá </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#sanphamquangba"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="sanphamquangba"
+                  >
+                    Danh sách- thêm sản phẩm
+                  </a>
+                </div>
+              </div>
+              <!-- menu Thông tin website  -->
+              <div class="dropdown">
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">Thông tin website </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#thongtinwebsite"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="thongtinwebsite"
+                  >
+                    Thêm mới thông tin
+                  </a>
+                </div>
+              </div>
+              <!-- Đổi mật khâu  -->
+              <div
+                class="dropdown"
+                style="margin-bottom: 200px; padding-bottom: 50px"
+              >
+                <button
+                  class="btn dropdown-toggle bg-light"
+                  style="width: 100%; text-align: start; margin-left: 20px"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-bank fa-fw"></i>
+                  <span class="pe-5">Đổi mật khẩu </span>
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="nav-link bg-light dropdown-item"
+                    data-toggle="collapse"
+                    href="#doimatkhau"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="doimatkhau"
+                  >
+                    TT chỉ thêm
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div
+          class="w3-overlay w3-hide-large w3-animate-opacity"
+          onclick="w3_close()"
+          style="cursor: pointer"
+          title="close side menu"
+          id="myOverlay"
+        ></div>
+
+        <!-- !PAGE CONTENT! -->
+        <div class="col-lg-10 mt-5 ml-0 mr-0 mb-0 p-0">
+          <div class="" id="thongkettnav">
+            <div class="card card-body">
+              <header class="w3-container" style="padding-top: 22px">
+                <h5>
+                  <b><i class="fa fa-dashboard"></i> Thống kê </b>
+                </h5>
+              </header>
+
+              <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-quarter">
+                  <div class="w3-container w3-red w3-padding-16">
+                    <div class="w3-left">
+                      <i class="fa fa-comment w3-xxxlarge"></i>
+                    </div>
+                    <div class="w3-right">
+                      <h3 id="soluonglienhe">1</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Liên hệ mới</h4>
+                  </div>
+                </div>
+                <div class="w3-quarter">
+                  <div class="w3-container w3-blue w3-padding-16">
+                    <div class="w3-left">
+                      <i class="fa fa-eye w3-xxxlarge"></i>
+                    </div>
+                    <div class="w3-right">
+                      <h3 id="sosanpham">10</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Sản phẩm</h4>
+                  </div>
+                </div>
+                <div class="w3-quarter">
+                  <div class="w3-container w3-teal w3-padding-16">
+                    <div class="w3-left">
+                      <i class="fa fa-share-alt w3-xxxlarge"></i>
+                    </div>
+                    <div class="w3-right">
+                      <h3 id="sodonhang">1</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Đơn hàng</h4>
+                  </div>
+                </div>
+                <div class="w3-quarter">
+                  <div
+                    class="w3-container w3-orange w3-text-white w3-padding-16"
+                  >
+                    <div class="w3-left">
+                      <i class="fa fa-users w3-xxxlarge"></i>
+                    </div>
+                    <div class="w3-right">
+                      <h3 id="taikhoankhachhang">1</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Tài khoản khách hàng</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w3-panel">
+                <div class="w3-row-padding" style="margin: 0 -16px">
+                  <div class="w3-third">
+                    <img
+                      src="/fruitables-1.0.0/img/baner-1.png"
+                      style="width: 100%"
+                      alt="Google Regional Map"
+                    />
+                  </div>
+                  <div class="w3-twothird">
+                    <h5>Thống kê chi tiết</h5>
+                    <table class="w3-table w3-striped w3-white">
+                      <tr>
+                        <td>
+                          <i class="fa fa-user w3-text-blue w3-large"></i>
+                        </td>
+                        <td>Doanh thu</td>
+                        <td><i id="tongdoanhthu">1 </i></td>
+                      </tr>
+                      <tr>
+                        <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                        <td>Đơn hàng chờ xử lý .</td>
+                        <td><i id="donhangchoxuly">1 </i></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fa fa-users w3-text-yellow w3-large"></i>
+                        </td>
+                        <td>Lượt đánh giá.</td>
+                        <td><i id="soluotdanhgia">1 </i></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fa fa-comment w3-text-red w3-large"></i>
+                        </td>
+                        <td>Sản phẩm bán ra.</td>
+                        <td><i id="sanphamdanhan">1 </i></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fa fa-bookmark w3-text-blue w3-large"></i>
+                        </td>
+                        <td>Đơn hàng bị huỷ.</td>
+                        <td><i id="sodonhanghuy">1 </i></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fa fa-laptop w3-text-red w3-large"></i>
+                        </td>
+                        <td>Doanh thu tháng.</td>
+                        <td><i id="doanhthuthang">1 </i></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="fa fa-share-alt w3-text-green w3-large"></i>
+                        </td>
+                        <td>Tổng số sản phẩm.</td>
+                        <td><i id="tongsosanpham">1 </i></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="w3-container">
+                <div class="container">
+                
+                    <div style="width: 1000px; height: 400px;">
+                      <canvas id="myChart" width="200" height="100"></canvas>
+                    </div>
+                    <br>
+                 
+                    <div style="width: 1000px; height: 400px; margin-top: 250px;">
+                      <canvas id="myChart2" width="200" height="100"></canvas>
+                    </div>
+                    <div style="width: 1000px; height: 400px; margin-top: 100px;">
+                      <canvas id="myChart3" width="200" height="100"></canvas>
+                    </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DANH MỤC  -->
+          <!-- thông tin  -->
+          <div class="collapse" id="danhmucnav1">
+            <div class="card card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col" colspan="2">Tên danh mục</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">
+                      <button class="btn btn-secondary close-btn">
+                        Thoát danh sách
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="danhsachdanhmuc"></tbody>
+              </table>
+            </div>
+          </div>
+          <!-- thêm  -->
+          <div class="collapse" id="danhmucnav2">
+            <div class="card card-body">
+              <div class="row">
+                <form action="" class="col-lg-4">
+                  <div class="form-group">
+                    <label for="danhmucthemname">Tên danh mục</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="danhmucthemname"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="danhmucthemmota">Mô tả danh mục</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="danhmucthemmota"
+                    />
+                  </div>
+                  <div class="form-group d-flex">
+                    <button
+                      class="btn btn-success m-auto"
+                      onclick="Themdanhmuc(event)"
+                    >
+                      Thêm
+                    </button>
+                  </div>
+                </form>
+                <div class="col-lg-8">
+                  <button class="btn btn-secondary close-btn">
+                    Thoát danh sách
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- sửa  -->
+          <div class="collapse" id="danhmucnav3">
+            <div class="card card-body">
+              <div class="row">
+                <div action="" class="col-lg-4">
+                  <div class="form-group">
+                    <label for="danhmucthemname">Id</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="madanhmuc2"
+                      value="0"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="danhmucthemname">Tên danh mục</label>
+                    <input type="text" class="form-control" id="tendanhmuc2" />
+                  </div>
+                  <div class="form-group">
+                    <label for="danhmucthemmota">Mô tả danh mục</label>
+                    <input type="text" class="form-control" id="motadanhmuc2" />
+                  </div>
+                  <div class="form-group d-flex">
+                    <button
+                      class="btn btn-success m-auto"
+                      onclick="editdanhmuc()"
+                    >
+                      Thêm
+                    </button>
+                  </div>
+
+                  <div class="col-lg-8">
+                    <button class="btn btn-secondary close-btn">
+                      Thoát danh sách
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- HANGSX -->
+          <!-- thông tin  -->
+          <div class="collapse" id="hangsxnav1">
+            <div class="card card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col" colspan="2">Tên hãng SX</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">
+                      <button class="btn btn-secondary close-btn">
+                        Thoát danh sách
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="danhsachhangsx"></tbody>
+              </table>
+            </div>
+          </div>
+          <!-- thêm  -->
+          <div class="collapse" id="hangsxnav2">
+            <div class="card card-body d-flex">
+              <form action="" class="col-lg-4">
+                <div class="form-group">
+                  <label for="hangsxname">Tên hãng sản xuất</label>
+                  <input type="text" class="form-control" id="hangsxname" />
+                </div>
+                <div class="form-group">
+                  <label for="hangsxdiachi">Địa chỉ</label>
+                  <input type="text" class="form-control" id="hangsxdiachi" />
+                </div>
+                <div class="form-group">
+                  <label for="motahangsx">Mô tả danh mục</label>
+                  <input type="text" class="form-control" id="motahangsx" />
+                </div>
+                <div class="form-group d-flex">
+                  <button
+                    class="btn btn-success m-auto"
+                    onclick="Themhangsx(event)"
+                  >
+                    Thêm
+                  </button>
+                </div>
+              </form>
+              <div class="col-lg-8">
+                <button class="btn btn-secondary close-btn">
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- sửa  -->
+          <div class="collapse" id="hangsxnav3">
+            <div class="card card-body">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="hangsxname">Mã hãng</label>
+                  <input type="text" class="form-control" id="mahangsx2" />
+                </div>
+                <div class="form-group">
+                  <label for="hangsxname">Tên hãng sản xuất</label>
+                  <input type="text" class="form-control" id="hangsxname2" />
+                </div>
+                <div class="form-group">
+                  <label for="hangsxdiachi">Địa chỉ</label>
+                  <input type="text" class="form-control" id="hangsxdiachi2" />
+                </div>
+                <div class="form-group">
+                  <label for="motahangsx">Mô tả danh mục</label>
+                  <input type="text" class="form-control" id="motahangsx2" />
+                </div>
+                <div class="form-group d-flex">
+                  <button class="btn btn-success m-auto" onclick="edithangsx()">
+                    sửa
+                  </button>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <button class="btn btn-secondary close-btn">
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- SAN PHAM  -->
+          <!-- thông tin  -->
+          <div class="collapse" id="sanphamnav1">
+            <div class="card card-body">
+              <button
+                class="btn btn-secondary close-btn d-flex m-auto"
+                style="width: 150px"
+              >
+                Thoát danh sách
+              </button>
+              <div class="table-responsive">
+                <table class="table">
+                  <div style="display: flex">
+                    <div style="display: flex">
+                      <div style="width: 350px">
+                        <div class="form-group">
+                          <label for="hangsxname">Mã Sản phẩm</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="idsps"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="hangsxname">Tên sản phẩm</label>
+                          <input type="text" class="form-control" id="tensps" />
+                        </div>
+                      </div>
+                      <div class="mx-3" style="width: 350px">
+                        <div class="form-group">
+                          <label for="hangsxname">Tên Danh mục</label>
+                          <select
+                            name=""
+                            class="form-control"
+                            id="tendanhmucs"
+                          ></select>
+                        </div>
+                        <div class="form-group">
+                          <label for="hangsxname">Tên hãng</label>
+                          <select
+                            name=""
+                            class="form-control"
+                            id="tenhangs"
+                          ></select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex m-auto">
+                      <button
+                        class="btn btn-success m-auto"
+                        onclick="Timkiemsp()"
+                      >
+                        Tìm kiếm
+                      </button>
+                    </div>
+                  </div>
+                  <thead>
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Tên</th>
+                      <th scope="col">Danh mục</th>
+                      <th scope="col">Hãng</th>
+                      <th scope="col">Mô tả</th>
+                      <th scope="col">Màu</th>
+                      <th scope="col">Loại</th>
+                      <th scope="col">Giá</th>
+                      <th scope="col">SL</th>
+                      <th scope="col">Ảnh1</th>
+                      <th scope="col">Ảnh2</th>
+                      <th scope="col">Date-add-edit</th>
+
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="danhsachsanpham"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- thêm  -->
+          <div class="collapse" id="sanphamnav2">
+            <div class="card card-body">
+              <div class="col-lg-10 d-flex">
+                <div style="width: 350px">
+                  <div class="form-group">
+                    <label for="tenspp">Tên sản phẩm:</label>
+                    <input type="text" class="form-control" id="tenspp" />
+                  </div>
+                  <div class="form-group">
+                    <label for="sanphamdmoption">Danh mục:</label>
+                    <select
+                      name=""
+                      id="sanphamdmoption"
+                      class="form-control"
+                    ></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="sanphamhangoption">Hãng sx:</label>
+                    <select
+                      name=""
+                      id="sanphamhangoption"
+                      class="form-control"
+                    ></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Mô tả:</label>
+                    <input type="text" class="form-control" id="motaspp" />
+                  </div>
+                </div>
+                <div class="mx-3" style="width: 150px">
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Màu sắc:</label>
+                    <input type="text" class="form-control" id="mauspp" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Loại:</label>
+                    <input type="text" class="form-control" id="loaispp" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Giá:</label>
+                    <input type="text" class="form-control" id="giaspp" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Số lượng:</label>
+                    <input type="text" class="form-control" id="slspp" />
+                  </div>
+                </div>
+
+                <div style="width: 450px">
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Ảnh 1:</label>
+                    <input type="file" class="form-control" id="anhspp1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Ảnh 2:</label>
+                    <input type="file" class="form-control" id="anhspp2" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Ngày thêm:</label>
+                    <input type="date" class="form-control" id="dateaddspp1" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Ngày sửa:</label>
+                    <input type="date" class="form-control" id="dateaddspp2" />
+                  </div>
+                </div>
+
+                <div class="form-group d-flex m-2">
+                  <button
+                    class="btn btn-success m-auto px-1"
+                    onclick="Themsanphammoi()"
+                  >
+                    Thêm sản phẩm
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-lg-2">
+                <button class="btn btn-secondary close-btn">
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- sửa  -->
+          <div class="collapse" id="sanphamnav3">
+            <div class="card card-body">
+              <div class="col-lg-10 d-flex">
+                <div style="width: 350px">
+                  <div class="form-group">
+                    <label for="tenspp">Mã sản phẩm:</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="masppe"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="tenspp">Tên sản phẩm:</label>
+                    <input type="text" class="form-control" id="tensppe" />
+                  </div>
+                  <div class="form-group">
+                    <label for="sanphamdmoption">Danh mục:</label>
+                    <select
+                      name=""
+                      id="sanphamdmoptione"
+                      class="form-control"
+                    ></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="sanphamhangoption">Hãng sx:</label>
+                    <select
+                      name=""
+                      id="sanphamhangoptione"
+                      class="form-control"
+                    ></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Mô tả:</label>
+                    <input type="text" class="form-control" id="motasppe" />
+                  </div>
+                </div>
+                <div class="mx-3" style="width: 150px">
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Màu sắc:</label>
+                    <input type="text" class="form-control" id="mausppe" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Loại:</label>
+                    <input type="text" class="form-control" id="loaisppe" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Giá:</label>
+                    <input type="text" class="form-control" id="giasppe" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Số lượng:</label>
+                    <input type="text" class="form-control" id="slsppe" />
+                  </div>
+                </div>
+
+                <div style="width: 450px">
+                  <div class="form-group">
+                    <label for="anhspp1e">Ảnh 1:</label>
+                    <input type="file" class="form-control" id="anhspp1e" />
+                    <p id="currentImage1Label">
+                      Ảnh hiện tại: <span id="currentImage1Name"></span>
+                    </p>
+                    <img
+                      id="currentImage1Preview"
+                      src=""
+                      alt="Ảnh 1 hiện tại"
+                      style="width: 100px; height: 100px"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="anhspp2e">Ảnh 2:</label>
+                    <input type="file" class="form-control" id="anhspp2e" />
+                    <p id="currentImage2Label">
+                      Ảnh hiện tại: <span id="currentImage2Name"></span>
+                    </p>
+                    <img
+                      id="currentImage2Preview"
+                      src=""
+                      alt="Ảnh 2 hiện tại"
+                      style="width: 100px; height: 100px"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Ngày thêm:</label>
+                    <input type="date" class="form-control" id="dateaddspp1e" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxdiachi">Ngày sửa:</label>
+                    <input type="date" class="form-control" id="dateaddspp2e" />
+                  </div>
+                </div>
+
+                <div class="form-group d-flex m-2">
+                  <button
+                    class="btn btn-success m-auto px-1"
+                    onclick="Editsanpham()"
+                  >
+                    Sửa thông tin sản phẩm
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-lg-2">
+                <button class="btn btn-secondary close-btn">Thoát</button>
+              </div>
+            </div>
+          </div>
+          <!-- DON HANG  -->
+          <!-- thông tin  -->
+          <div class="collapse" id="donhangnav1">
+            <div class="card card-body">
+              <button
+                class="btn btn-secondary close-btn d-flex m-auto"
+                style="width: 150px"
+              >
+                Thoát danh sách
+              </button>
+              <div class="table-responsive">
+                <table class="table">
+                  <div style="display: flex">
+                    <div class="d-flex">
+                      <div class="form-group d-flex">
+                        <label
+                          for="emailnguoidung"
+                          style="width: 300px"
+                          class="m-auto px-3"
+                          >Tên người dùng</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="emailnguoidungdonhang"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <button
+                          class="btn btn-success mx-3"
+                          onclick="Timkiemdonhang()"
+                        >
+                          Tìm kiếm
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <thead id="thongbaoloi">
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Tên tài khoản</th>
+                      <th scope="col">Ngày đặt</th>
+                      <th scope="col">Người nhận</th>
+                      <th scope="col">Địa chỉ</th>
+                      <th scope="col">SĐT</th>
+                      <th scope="col">Trạng thái</th>
+                      <th scope="col">Loại thanh toán</th>
+                      <th scope="col">Giá</th>
+                      <th scope="col">Số sản phẩm</th>
+                      <th scope="col">Xem thêm</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="danhsachdonhang"></tbody>
+                  <div class="col-12">
+                    <div
+                      class="pagination d-flex justify-content-center mt-5"
+                    ></div>
+                  </div>
+                </table>
+              </div>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="modalDetail"
+                tabindex="-1"
+                aria-labelledby="modalDetailLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalDetailLabel">
+                        Chi tiết sản phẩm
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        Thoát
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Chi tiết sản phẩm sẽ được thêm vào đây -->
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Giá</th>
+                            <th scope="col">Tổng giá</th>
+                          </tr>
+                        </thead>
+                        <tbody id="modalItemDetails">
+                          <!-- Chi tiết sản phẩm sẽ được chèn vào đây -->
+                        </tbody>
+                      </table>
+                      <div id="modalTotal">
+                        <p>
+                          <strong>Tổng số lượng: </strong
+                          ><span id="modalTotalQuantity"></span>
+                        </p>
+                        <p>
+                          <strong>Tổng giá: </strong
+                          ><span id="modalTotalPrice"></span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tin Tuc -->
+          <!-- thông tin  -->
+          <div class="collapse" id="tintucnav1">
+            <div class="card card-body">
+              <h2>Danh sách tin tức</h2>
+              <table class="table">
+                <thead>
+                  <th scope="col">Id</th>
+                  <th scope="col">Tiêu đề</th>
+                  <th scope="col">Nội dung</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Ngày thêm</th>
+                  <th scope="col"></th>
+                </thead>
+                <tbody class="danhsachtintuc"></tbody>
+              </table>
+              <button class="btn btn-secondary close-btn" style="width: 150px">
+                Thoát danh sách
+              </button>
+            </div>
+          </div>
+          <!-- thêm  -->
+
+          <div class="collapse" id="tintucnav2">
+            <div class="card card-body">
+              <h2>Thêm tin tức</h2>
+              <div class="col-lg-8 d-flex">
+                <div class="w-50">
+                  <div class="form-group">
+                    <label for="hangsxname">Tiêu đề:</label>
+                    <input type="text" class="form-control" id="tieudett2" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Nội dung:</label>
+                    <input type="text" class="form-control" id="noiduungtt2" />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <label for="hangsxname">Image:</label>
+                    <input type="file" class="form-control" id="imagett2" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Ngày thêm:</label>
+                    <input type="date" class="form-control" id="ngaythemtt2" />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <button
+                      class="btn btn-success py-2 mt-4"
+                      onclick="themtintuc()"
+                    >
+                      Thêm
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <button
+                  class="btn btn-secondary close-btn"
+                  style="width: 150px"
+                >
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- sửa  -->
+          <div class="collapse" id="tintucnav3">
+            <div class="card card-body">
+              <h2>Sửa tin tức</h2>
+              <div class="col-lg-8 d-flex">
+                <div class="w-50">
+                  <div class="form-group">
+                    <label for="hangsxname">Id:</label>
+                    <input type="number" class="form-control" id="matintuc3" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Tiêu đề:</label>
+                    <input type="text" class="form-control" id="tieudett3" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Nội dung:</label>
+                    <input type="text" class="form-control" id="noiduungtt3" />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <label for="hangsxname">Image:</label>
+                    <input type="file" class="form-control" id="imagett3" />
+                    <!-- Thẻ hiển thị ảnh cũ -->
+                    <img
+                      id="oldImagePreview"
+                      src=""
+                      alt="Ảnh cũ"
+                      style="margin-top: 10px; max-width: 100%; height: auto"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="hangsxname">Ngày thêm:</label>
+                    <input type="date" class="form-control" id="ngaythemtt3" />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <button
+                      class="btn btn-success py-2 mt-4"
+                      onclick="edittintuc()"
+                    >
+                      Sửa tin tức
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <button
+                  class="btn btn-secondary close-btn"
+                  style="width: 150px"
+                >
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- LIÊN HỆ -->
+          <!-- Danh sách  -->
+          <div class="collapse" id="lienhenav1">
+            <div class="card card-body">
+              <h2>Danh sách liên hệ</h2>
+              <table class="table">
+                <thead>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Nội dung</th>
+                  <th scope="col">SĐT</th>
+                  <th scope="col">Ngày thêm</th>
+                  <th scope="col"></th>
+                </thead>
+                <tbody class="danhsachlienhe"></tbody>
+              </table>
+              <button class="btn btn-secondary close-btn" style="width: 150px">
+                Thoát danh sách
+              </button>
+            </div>
+          </div>
+          <!-- KHÁCH HÀNG -->
+          <!-- Danh sách user -->
+          <div class="collapse" id="khachhangnav1">
+            <div class="card card-body">
+              <button
+                class="btn btn-secondary close-btn d-flex m-auto"
+                style="width: 150px"
+              >
+                Thoát danh sách
+              </button>
+              <div class="table-responsive">
+                <h2>Danh sách tài khoản</h2>
+                <table class="table">
+                  <div style="display: flex">
+                    <div class="d-flex">
+                      <div class="form-group d-flex">
+                        <label for="emailnguoidung" class="m-auto px-3"
+                          >Email</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="emailnguoidung"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <button
+                          class="btn btn-success mx-3"
+                          onclick="Timkiemnguoidung()"
+                        >
+                          Tìm kiếm
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <thead>
+                    <tr>
+                      <th scope="col">Email</th>
+                      <th scope="col">Tên</th>
+                      <th scope="col">SĐT</th>
+                      <th scope="col">Địa chỉ</th>
+                      <th scope="col">Ngày sinh</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="danhsachtaikhoan"></tbody>
+                  <div class="col-12">
+                    <div
+                      class="pagination d-flex justify-content-center mt-5"
+                    ></div>
+                  </div>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- sửa  -->
+          <div class="collapse" id="khachhangnav3">
+            <div class="card card-body">Khách hàng</div>
+          </div>
+          <!-- xoá tk -->
+
+          <!-- BannerIndex  -->
+          <div class="collapse" id="bannerindex1">
+            <h2>Danh sách Banner Index</h2>
+            <div class="card card-body">
+              <table class="table">
+                <thead class="bg-light">
+                  <th scope="col">Id</th>
+                  <th>Tên danh mục</th>
+                  <th>Ảnh</th>
+                  <th></th>
+                </thead>
+                <tbody class="danhsachbannerIndex"></tbody>
+              </table>
+            </div>
+            <div class="card card-body">
+              <h2>Thêm Banner Index</h2>
+              <div class="col-lg-8 d-flex">
+                <div class="w-50">
+                  <div class="form-group">
+                    <label for="sanphamdmoption">Danh mục:</label>
+                    <select
+                      name=""
+                      id="sanphamdmoption2"
+                      class="form-control"
+                    ></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Ảnh:</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="imagebannerindex"
+                    />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <button
+                      class="btn btn-success py-2 mt-4"
+                      onclick=" ThemmoibannerIndex()"
+                    >
+                      Thêm
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <button
+                  class="btn btn-secondary close-btn"
+                  style="width: 150px"
+                >
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- BANER THREE   -->
+          <div class="collapse" id="bannerthree1">
+            <h2>Danh sách Banner Three</h2>
+            <div class="card card-body">
+              <table class="table">
+                <thead class="bg-light">
+                  <th scope="col">Id</th>
+                  <th>Tiêu đề</th>
+                  <th>Ảnh</th>
+                  <th>Mô tả</th>
+                  <th></th>
+                </thead>
+                <tbody class="danhsachbannerthree"></tbody>
+              </table>
+            </div>
+            <div class="card card-body">
+              <h2>Thêm Banner Three</h2>
+              <div class="col-lg-8 d-flex">
+                <div class="w-50">
+                  <div class="form-group">
+                    <label for="hangsxname">Tiêu đề:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="tieudebannerthree"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Ảnh:</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="imagebannerthree"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Mô tả:</label>
+                    <textarea
+                      name=""
+                      class="form-control"
+                      id="motabannerthree"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <button
+                      class="btn btn-success py-2 mt-4"
+                      onclick=" Themmoibannerthree()"
+                    >
+                      Thêm
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <button
+                  class="btn btn-secondary close-btn"
+                  style="width: 150px"
+                >
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quang ba  -->
+          <div class="collapse" id="sanphamquangba">
+            <div class="card card-body">
+              <h2>Sản phẩm quảng bá</h2>
+              <table class="table">
+                <thead class="bg-light">
+                  <th scope="col">Id</th>
+                  <th class="text-center">Tiêu đề 1</th>
+                  <th class="text-center">Tiêu đề 2</th>
+                  <th class="text-center">Ảnh</th>
+                  <th class="text-center">Mô tả</th>
+                  <th></th>
+                </thead>
+                <tbody class="sanphamquangba"></tbody>
+              </table>
+            </div>
+            <div class="card card-body">
+              <h2>Thêm Sản phẩm quảng bá</h2>
+              <div class="col-lg-8 d-flex">
+                <div class="w-50">
+                  <div class="form-group">
+                    <label for="sanphamdmoption">Tiêu đề 1:</label>
+                    <input type="text" id="tieude1" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="sanphamdmoption">Tiêu đề 2:</label>
+                    <input type="text" id="tieude2" class="form-control" />
+                  </div>
+                </div>
+                <div class="w-50 ml-5 mr-4">
+                  <div class="form-group">
+                    <label for="hangsxname">Ảnh:</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="imagespquangba"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="sanphamdmoption">Mô tả:</label>
+                    <textarea
+                      name=""
+                      id="motasanphamquangba"
+                      class="form-control"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <button
+                      class="btn btn-success px-5 py-2 mt-4"
+                      onclick=" Themmoisanphamquangba()"
+                    >
+                      Thêm
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <button
+                  class="btn btn-secondary close-btn"
+                  style="width: 150px"
+                >
+                  Thoát danh sách
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Thoong tin wwebsite -->
+          <div class="collapse" id="thongtinwebsite">
+            <div class="card card-body">
+              <h2>Thông tin cửa hàng</h2>
+              <table class="table">
+                <thead>
+                  <th scope="col">Id</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">Số điện thoại</th>
+                  <th scope="col">Tên công ty</th>
+                  <th scope="col">Mô tả</th>
+                </thead>
+                <tbody class="danhsachttweb"></tbody>
+              </table>
+              <h2>Cập nhật thông tin</h2>
+              <div class="col-lg-8 d-flex">
+                <div class="w-50">
+                  <div class="form-group">
+                    <label for="hangsxname">Email:</label>
+                    <input type="text" class="form-control" id="emaildn" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Địa chỉ:</label>
+                    <input type="text" class="form-control" id="diachidn" />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <label for="hangsxname">Số điện thoại:</label>
+                    <input type="text" class="form-control" id="sdtdn" />
+                  </div>
+                  <div class="form-group">
+                    <label for="hangsxname">Tên doanh nghiệp:</label>
+                    <input type="text" class="form-control" id="namedn" />
+                  </div>
+                </div>
+                <div class="w-50 my-auto mx-3">
+                  <div class="form-group">
+                    <label for="hangsxname">Mô tả:</label>
+                    <textarea
+                      name=""
+                      type="text"
+                      class="form-control"
+                      id="motadn"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button
+                      class="btn btn-success mt-1"
+                      onclick="themthongtin()"
+                    >
+                      Cập nhật
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-secondary close-btn" style="width: 150px">
+                Thoát danh sách
+              </button>
+            </div>
+          </div>
+          <!-- đổi mật khẩu  -->
+          <div class="collapse" id="doimatkhau">
+            <div class="card card-body">edit mk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./admin.js"></script>
+  </body>
+</html>
